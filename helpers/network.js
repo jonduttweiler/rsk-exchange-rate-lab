@@ -10,7 +10,15 @@ async function printNetworkInfo(web3) {
     console.log(`networkId: ${networkId}`)
     console.log(`    block: ${block}`)
     console.log(` gasPrice: ${gasPrice}`)
+
+    console.log(`Account details`)
+    const defaultAddress = await web3.eth.getAccounts();
+    console.log(defaultAddress[0])
+    const balance = await web3.eth.getBalance(defaultAddress[0]);
+    console.log(`balance: ${web3.utils.fromWei(balance)} RBTC`);
+
 }
+
 
 module.exports = {
     printNetworkInfo
