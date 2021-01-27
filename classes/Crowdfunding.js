@@ -12,9 +12,17 @@ class Crowdfunding {
         this.web3 = web3;
     }
 
+    async getExchangeRateProvider(){
+        return this.contract.methods.exchangeRateProvider().call();
+    }
+
     async getExchangeRate(address){
         const RBTCExchangeRate =  await this.contract.methods._getExchangeRate(address).call();
         return RBTCExchangeRate; 
+    }
+
+    async setExchangeRateProvider(address,callee){
+         await this.contract.methods.setExchangeRateProvider(address).send({from:callee, gas: 120000});
     }
 
 

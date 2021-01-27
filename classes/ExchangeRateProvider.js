@@ -17,6 +17,10 @@ class ExchangeRateProvider {
         return RBTCExchangeRate; 
     }
 
+    async getBTCPrice(){
+        return await this.contract.methods.getBTCPrice().call();
+    }
+
 
 }
 module.exports = ExchangeRateProvider;
