@@ -1,7 +1,6 @@
 const { getWeb3 } = require("./helpers/web3/testnet");
 
 const Crowdfunding = require("./classes/Crowdfunding");
-const PriceProxy = require("./classes/PriceProxy");
 const ExchangeRateProvider = require("./classes/ExchangeRateProvider");
 const IPriceProvider = require("./classes/IPriceProvider");
 const { getAllEntities } = require("./helpers/crowdfunding/crowdfunding");
@@ -58,10 +57,7 @@ async function init(){
     
     const BTCExchangeRate = await crowdfunding.getExchangeRate(RBTCAddress);
     console.log(`[${new Date().toISOString()}] Exchange rate from Crowdfunding at ${network}: ${BTCExchangeRate}`) 
- 
-    const priceProxy = new PriceProxy(web3,addresses[network].priceProxy);
-    let btcPrice = await priceProxy.getBTCPriceFromMoC(); 
-    console.log(`[${new Date().toISOString()}] BTC Price from MoC ${network}: ${btcPrice} wei USD - ${web3.utils.fromWei(btcPrice)} USD`)  */
+  
     
 } 
 
