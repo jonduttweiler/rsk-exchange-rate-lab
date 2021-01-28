@@ -4,6 +4,7 @@ const Crowdfunding = require("./classes/Crowdfunding");
 const PriceProxy = require("./classes/PriceProxy");
 const ExchangeRateProvider = require("./classes/ExchangeRateProvider");
 const IPriceProvider = require("./classes/IPriceProvider");
+const { getAllEntities } = require("./helpers/crowdfunding/crowdfunding");
 
 
 const addresses = {
@@ -28,7 +29,6 @@ async function init(){
     console.log(network)
 
     //directo al price provider
-    
     const iPriceProvider = new IPriceProvider(web3,addresses[network].iPriceProvider);
     const {'0':price,'1':hasPrice} = await iPriceProvider.peek();
     console.log(`priceProvider hasPrice: ${hasPrice}`)
@@ -36,7 +36,11 @@ async function init(){
 
     
     const crowdfunding = new Crowdfunding(web3,addresses[network].crowdfunding);
-    const exrAddress = await crowdfunding.getExchangeRateProvider();
+    getAllEntities(crowdfunding)
+
+
+
+/*     const exrAddress = await crowdfunding.getExchangeRateProvider();
     console.log(`Exchange Rate Provider:${exrAddress} `)
 
     try{
@@ -49,7 +53,7 @@ async function init(){
     }
     
     
-
+ */
     /*
     
     const BTCExchangeRate = await crowdfunding.getExchangeRate(RBTCAddress);

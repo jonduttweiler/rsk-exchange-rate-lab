@@ -12,6 +12,27 @@ class Crowdfunding {
         this.web3 = web3;
     }
 
+    getDacIds(){
+        return this.contract.methods.getDacIds().call();
+    }
+    getCampaignIds(){
+        return this.contract.methods.getCampaignIds().call();
+    }
+    getMilestoneIds(){
+        return this.contract.methods.getMilestoneIds().call();
+    }
+
+    
+    getDac(_id){
+        return this.contract.methods.getDac(_id).call();
+    }
+    getCampaign(_id){
+        return this.contract.methods.getCampaign(_id).call();
+    }
+    getMilestone(_id){
+        return this.contract.methods.getMilestone(_id).call();
+    }
+
     async getExchangeRateProvider(){
         return this.contract.methods.exchangeRateProvider().call();
     }
