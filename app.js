@@ -54,14 +54,11 @@ async function init(){
     
  */
     /*
-    
     const BTCExchangeRate = await crowdfunding.getExchangeRate(RBTCAddress);
     console.log(`[${new Date().toISOString()}] Exchange rate from Crowdfunding at ${network}: ${BTCExchangeRate}`) 
-  
+  */  
     
 } 
 
 init();
-
-
 
